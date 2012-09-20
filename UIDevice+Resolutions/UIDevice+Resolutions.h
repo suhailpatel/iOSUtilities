@@ -7,6 +7,8 @@
 //  mail: daniele.margutti@gmail.com
 //  Copyright (c) 2012 Daniele Margutti. All rights reserved.
 //
+//  Modified by Suhail Patel for adding support for unknown devices
+//
 
 #import <UIKit/UIKit.h>
 
@@ -15,7 +17,8 @@ enum {
     UIDevice_iPhoneHiRes            = 2,    // iPhone 4,4S High Resolution          (640x960px)
     UIDevice_iPhoneTallerHiRes      = 3,    // iPhone 5 High Resolution             (640x1136px)
     UIDevice_iPadStandardRes        = 4,    // iPad 1,2 Standard Resolution         (1024x768px)
-    UIDevice_iPadHiRes              = 5     // iPad 3 High Resolution               (2048x1536px)
+    UIDevice_iPadHiRes              = 5,    // iPad 3 High Resolution               (2048x1536px)
+    UIDevice_iOSUnknown             = 6     // Unknown iOS Device
 }; typedef NSUInteger UIDeviceResolution;
 
 @interface UIDevice (Resolutions) { }

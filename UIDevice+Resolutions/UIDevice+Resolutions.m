@@ -7,6 +7,8 @@
 //  mail: daniele.margutti@gmail.com
 //  Copyright (c) 2012 Daniele Margutti. All rights reserved.
 //
+//  Modified by Suhail Patel for adding support for unknown devices
+//
 
 #import "UIDevice+Resolutions.h"
 
@@ -18,10 +20,14 @@
             CGSize result = [[UIScreen mainScreen] bounds].size;
             result = CGSizeMake(result.width * [UIScreen mainScreen].scale, result.height * [UIScreen mainScreen].scale);
             return (result.height == 960 ? UIDevice_iPhoneHiRes : UIDevice_iPhoneTallerHiRes);
-        } else
+        } else {
             return UIDevice_iPhoneStandardRes;
-    } else
+        }
+    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         return (([[UIScreen mainScreen] respondsToSelector: @selector(scale)]) ? UIDevice_iPadHiRes : UIDevice_iPadStandardRes);
+    } else {
+        return UIDevice_iOSUnknown;
+    }
 }
 
 @end
